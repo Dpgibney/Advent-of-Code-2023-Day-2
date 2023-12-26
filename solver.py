@@ -1,7 +1,7 @@
-values = 0
+value = 0
 
 file1 = open('p1_input.txt','r')
-file1 = open('p1_input.example','r')
+#file1 = open('p1_input.example','r')
 Lines = file1.readlines()
 
 #red, green, blue
@@ -14,14 +14,12 @@ for index, games in enumerate(Lines):
     games = games.split(";")
     for game in games:
         tmp = game.split()
-        print("game:",index+1,tmp)
-        for i in range(len(tmp)-1):
+        for i in range(len(tmp)):
             if i % 2 == 0:
                 if max_marbles[tmp[i+1]] < int(tmp[i]):
                     max_marbles[tmp[i+1]] = int(tmp[i])
-    print(max_marbles)
     if(max_marbles["red"] <= num_marbles[0] and max_marbles["green"] <= num_marbles[1] and max_marbles["blue"] <= num_marbles[2]):
-        values += index+1
+        value += index+1
 
-print(values)
+print(value)
 
